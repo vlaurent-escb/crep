@@ -325,7 +325,7 @@ Module Contents
 
 .. py:function:: suppress_duplicates(df, id_discrete, continuous_index)
 
-.. py:function:: _increasing_continuous_index(df: pandas.DataFrame, id_continuous)
+.. py:function:: _increasing_continuous_index(df: pandas.DataFrame, id_continuous: [Any, Any])
 
 .. py:function:: __refactor_data(data_left, data_right, id_continuous, id_discrete, names=('left', 'right'))
 
