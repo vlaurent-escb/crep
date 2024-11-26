@@ -25,7 +25,6 @@ Functions
    crep.tools.concretize_aggregation
    crep.tools.n_cut_finder
    crep.tools.clusterize
-   crep.tools.fill_duplicates_na
    crep.tools.sort
 
 
@@ -375,29 +374,6 @@ Module Contents
 
        Exception
            When the dataframe df passed in argument is not admissible i.e. it contains overlapping rows and or duplicates
-
-
-
-
-
-
-
-   ..
-       !! processed by numpydoc !!
-
-.. py:function:: fill_duplicates_na(df, id_discrete: list[Any], id_continuous: [Any, Any])
-
-   
-   Fills duplicated rows with NaN by the value of the other duplicated row 
-
-
-
-
-
-
-
-
-
 
 
 

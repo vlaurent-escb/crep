@@ -310,7 +310,6 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crep.tools.concretize_aggregation"><code class="docutils literal notranslate"><span class="pre">concretize_aggregation()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crep.tools.n_cut_finder"><code class="docutils literal notranslate"><span class="pre">n_cut_finder()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crep.tools.clusterize"><code class="docutils literal notranslate"><span class="pre">clusterize()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crep.tools.fill_duplicates_na"><code class="docutils literal notranslate"><span class="pre">fill_duplicates_na()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crep.tools.sort"><code class="docutils literal notranslate"><span class="pre">sort()</span></code></a></li>
 </ul>
 </li>
@@ -379,10 +378,7 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#crep.tools.clusterize" title="crep.tools.clusterize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clusterize</span></code></a>(→ pandas.Series)</p></td>
 <td><p>TODO: create_cluster_by_size</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#crep.tools.fill_duplicates_na" title="crep.tools.fill_duplicates_na"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_duplicates_na</span></code></a>(df, id_discrete, id_continuous)</p></td>
-<td><p>Fills duplicated rows with NaN by the value of the other duplicated row</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#crep.tools.sort" title="crep.tools.sort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sort</span></code></a>(→ pandas.DataFrame)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#crep.tools.sort" title="crep.tools.sort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sort</span></code></a>(→ pandas.DataFrame)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -654,12 +650,6 @@ Defines where to limit segment aggregation when uniformizing segment size to tar
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="crep.tools.fill_duplicates_na">
-<span class="sig-prename descclassname"><span class="pre">crep.tools.</span></span><span class="sig-name descname"><span class="pre">fill_duplicates_na</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_discrete</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_continuous</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#crep.tools.fill_duplicates_na" title="Link to this definition">#</a></dt>
-<dd><p>Fills duplicated rows with NaN by the value of the other duplicated row</p>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="crep.tools.sort">
 <span class="sig-prename descclassname"><span class="pre">crep.tools.</span></span><span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_discrete</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_continuous</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.DataFrame</span></span></span><a class="headerlink" href="#crep.tools.sort" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
@@ -722,7 +712,6 @@ Defines where to limit segment aggregation when uniformizing segment size to tar
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crep.tools.concretize_aggregation"><code class="docutils literal notranslate"><span class="pre">concretize_aggregation()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crep.tools.n_cut_finder"><code class="docutils literal notranslate"><span class="pre">n_cut_finder()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crep.tools.clusterize"><code class="docutils literal notranslate"><span class="pre">clusterize()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crep.tools.fill_duplicates_na"><code class="docutils literal notranslate"><span class="pre">fill_duplicates_na()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crep.tools.sort"><code class="docutils literal notranslate"><span class="pre">sort()</span></code></a></li>
 </ul>
 </li>
