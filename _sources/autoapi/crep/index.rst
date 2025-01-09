@@ -26,6 +26,7 @@ Functions
    crep.homogenize_within
    crep.aggregate_duplicates
    crep.merge_event
+   crep.fill_segmentation
    crep.compute_discontinuity
 
 
@@ -213,11 +214,11 @@ Package Contents
    ..
        !! processed by numpydoc !!
 
-.. py:function:: homogenize_within(df: pandas.DataFrame, id_discrete: list[Any], id_continuous: [Any, Any], method: Literal['agg', 'split'] | list[Literal['agg', 'split']] | set[Literal['agg', 'split']] | None = None, target_size: None | int = None, dict_agg: dict[str, list[Any]] | None = None, strict_size: bool = False, verbose: bool = False) -> pandas.DataFrame
+.. py:function:: homogenize_within(df: pandas.DataFrame, id_discrete: list[Any], id_continuous: [Any, Any], target_size: float | int | None = None, method: Literal['agg', 'split'] | list[Literal['agg', 'split']] | set[Literal['agg', 'split']] | None = None, dict_agg: dict[str, list[Any]] | None = None, strict_size: bool = False, verbose: bool = False) -> pandas.DataFrame
 
    
    Uniformizes segment size by splitting them into shorter segments close to target size. The uniformization aims
-   to get a close a possible to target_size with +- 1.33 *  target_size as maximum error margin.
+   to get a close a possible to target_size with +- 1.33 * target_size as maximum error margin.
 
 
    :Parameters:
@@ -231,12 +232,12 @@ Package Contents
        **id_continuous** : list of 2 column names
            continuous columns that delimit the segments' start and end
 
+       **target_size: optional, integer > 0 or None**
+           targeted segment size. If None, the median is selected.
+
        **method** : optional str, either "agg" or "split"
            Whether to homogenize segment length by splitting long segments ("split") or by aggregating short segments ("agg") or both.
            Default to None lets the function define the method.
-
-       **target_size: optional, integer > 0 or None**
-           targeted segment size. Default to None lets the function define the target size.
 
        **strict_size: whether to strictly respect target_size specified in argument, if any specified.**
            The function can change the target size if the value is not congruent with the method
@@ -258,6 +259,10 @@ Package Contents
 
 
 
+   :Raises:
+
+       Exception:
+           If method is not defined and if the function failed to select automatically a method.
 
 
 
@@ -352,6 +357,50 @@ Package Contents
 
        pd.DataFrame
            A merged dataframe that combines `data_left` and `data_right`.
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:function:: fill_segmentation(df_segmentation: pandas.DataFrame, df_features: pandas.DataFrame, id_discrete: list[str], id_continuous: list[str], dict_agg: dict[str, list[str]] | None = None)
+
+   
+   adds data to segmentation
+
+
+   :Parameters:
+
+       **df_segmentation: pd.DataFrame**
+           the dataframe containing the segmentation. Should contain only columns id_discrete and id_continuous
+
+       **df_features: pd.DataFrame**
+           the dataframe containing the features to fit to the segmentation. Should contain the columns
+           id_discrete and id_continuous as well as other columns for the features of interest.
+
+       **id_discrete**
+           ..
+
+       **id_continuous**
+           ..
+
+       **dict_agg:**
+           ..
+
+
+
+   :Returns:
+
+       pd.DataFrame:
+           a dataframe with the feature data fitted to the new segmentation.
 
 
 
