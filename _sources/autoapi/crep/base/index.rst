@@ -28,10 +28,9 @@ Functions
    crep.base.split_segment
    crep.base.homogenize_within
    crep.base.homogenize_between
-   crep.base.aggregate
    crep.base.segmentation_irregular
    crep.base.segmentation_regular
-   crep.base.fill_segmentation
+   crep.base.aggregate_on_segmentation
 
 
 Module Contents
@@ -341,6 +340,7 @@ Module Contents
 
    
    Removes duplicated rows by aggregating them.
+   TODO : assess
 
 
    :Parameters:
@@ -436,7 +436,7 @@ Module Contents
    ..
        !! processed by numpydoc !!
 
-.. py:function:: split_segment(df: pandas.DataFrame, id_discrete: list[Any], id_continuous: [Any, Any], target_size: int, col_sum_agg: list[str] = [], verbose: bool = False) -> pandas.DataFrame
+.. py:function:: split_segment(df: pandas.DataFrame, id_discrete: list[Any], id_continuous: [Any, Any], target_size: int, col_sum_agg: list[str] = None, verbose: bool = False) -> pandas.DataFrame
 
    
    Uniformizes segment size by splitting them into shorter segments close to target size.
@@ -462,9 +462,6 @@ Module Contents
            result in inflated sums later on. To counter that, the columns that should later be summed are specified in
            this list. The values are transformed into ratios relative to the segment size, then the row is split, and
            then an inverse transformation is done to reassign a non-ratio value.
-
-       **hist** : optional. boolean
-           if True, display a histogram of the segment size post aggregation
 
        **verbose: optional. boolean**
            whether to print shape of df and if df is admissible at the end of the function.
@@ -615,8 +612,6 @@ Module Contents
    ..
        !! processed by numpydoc !!
 
-.. py:function:: aggregate(df: pandas.DataFrame, df_target_segmentation: pandas.DataFrame, id_discrete: list[Any], id_continuous: [Any, Any], method='weighted_mean') -> pandas.DataFrame
-
 .. py:function:: segmentation_irregular(df: pandas.DataFrame, id_discrete: list[Any], id_continuous: [Any, Any], length_target, length_minimal) -> pandas.DataFrame
 
    
@@ -665,7 +660,7 @@ Module Contents
 
 .. py:function:: segmentation_regular(df: pandas.DataFrame, id_discrete: list[Any], id_continuous: [Any, Any], length_target, length_gap_filling) -> pandas.DataFrame
 
-.. py:function:: fill_segmentation(df_segmentation: pandas.DataFrame, df_features: pandas.DataFrame, id_discrete: list[str], id_continuous: list[str], dict_agg: dict[str, list[str]] | None = None)
+.. py:function:: aggregate_on_segmentation(df_segmentation: pandas.DataFrame, df_data: pandas.DataFrame, id_discrete: list[str], id_continuous: list[str], dict_agg: dict[str, list[str]] | None = None)
 
    
    adds data to segmentation
@@ -676,7 +671,7 @@ Module Contents
        **df_segmentation: pd.DataFrame**
            the dataframe containing the segmentation. Should contain only columns id_discrete and id_continuous
 
-       **df_features: pd.DataFrame**
+       **df_data: pd.DataFrame**
            the dataframe containing the features to fit to the segmentation. Should contain the columns
            id_discrete and id_continuous as well as other columns for the features of interest.
 
